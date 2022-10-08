@@ -1,0 +1,8 @@
+{
+    "driverPath": "",
+    "selector": "id",
+    "browser": "Chrome",
+    "browserVersion": "",
+    "taskDir": "",
+    "taskSet": false
+}
