@@ -1,8 +1,1 @@
-{
-    "driverPath": "",
-    "selector": "id",
-    "browser": "Chrome",
-    "browserVersion": "",
-    "taskDir": "",
-    "taskSet": false
-}
+{"driverPath": "C:\\Users\\jcmac\\Projects\\python\\schedulable-recurring-downloader\\chromedriver.exe", "downloadPath": "C:\\Users\\jcmac\\Projects\\python\\schedulable-recurring-downloader", "selector": "id", "browser": "Chrome", "browserVersion": "", "taskDir": "", "taskSet": false}

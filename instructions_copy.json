@@ -1,0 +1,46 @@
+{
+    "elements": [
+        {
+            "by": "id",
+            "value": "id_email",
+            "actions": [
+                {
+                    "name": "send_keys",
+                    "args": [
+                        "jcmacielhenning@gmail.com"
+                    ],
+                    "kwargs": {}
+                }
+            ]
+        },
+        {
+            "by": "id",
+            "value": "id_password",
+            "actions": [
+                {
+                    "name": "send_keys",
+                    "args": [
+                        "ai2X8hCXbCA@lZWv"
+                    ],
+                    "kwargs": {}
+                },
+                {
+                    "name": "submit",
+                    "args": [],
+                    "kwargs": {}
+                }
+            ]
+        },
+        {
+            "by": "partial_link_text",
+            "value": "Descargar APK",
+            "actions": [
+                {
+                    "name": "click",
+                    "args": [],
+                    "kwargs": {}
+                }
+            ]
+        }
+    ]
+}
