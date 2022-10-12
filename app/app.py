@@ -265,18 +265,6 @@ class Application(tk.Frame):
                 w.config(state='normal')
             else:
                 w.config(state='disabled')
-        # if val == settings.SELENIUM_TYPE_CLICK:
-        #     self.selenium_input_txt.config(state='disabled')
-        #     self.selenium_selec_type.config(state='disabled')
-        #     self.seleniums_select_val.config(state='disabled')
-        # elif val == settings.SELENIUM_TYPE_FILL:
-        #     self.selenium_input_txt.config(state='normal')
-        #     pass
-        # elif val == settings.SELENIUM_TYPE_SELECT:
-        #     self.selenium_selec_type.config(state='normal')
-        #     self.seleniums_select_val.config(state='normal')
-        # else:
-        #     raise ValueError(f"Selenium type can not be {val}")
 
     def __fetch_chrome(self):
         """
