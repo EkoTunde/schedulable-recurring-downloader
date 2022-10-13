@@ -1,7 +1,7 @@
 from tkinter import ttk
 from threading import Thread
 from turtle import width
-from typing import Callable
+from typing import Callable, Union
 from get_chrome_driver import GetChromeDriver
 from app.utils import build_instruction
 import settings
@@ -253,6 +253,7 @@ class Application(tk.Frame):
     def __on_path_changed(self, *args, **kwargs):
         path = self.__path.get()
         settings.save_setting(settings.DRIVER_PATH_KEY, path)
+        self.__update_current_instruction()
         return True
 
     def __on_selenium_type_changed(self, *args, **kwargs):
@@ -265,6 +266,7 @@ class Application(tk.Frame):
                 w.config(state='normal')
             else:
                 w.config(state='disabled')
+        self.__update_current_instruction()
 
     def __fetch_chrome(self):
         """
@@ -279,10 +281,25 @@ class Application(tk.Frame):
         async_fetch_chrome = AsyncFetchChrome(on_done)
         async_fetch_chrome.start()
 
-    def __string_var_or_none(self, string_var):
-        if ret := string_var.get() != '':
+    def __string_var_or_none(self, string_var) -> Union[str, None]:
+        """
+        Returns the value for the string var or None if empty.
+
+        Args:
+            string_var (StringVar): a mutable string variable.
+
+        Returns:
+            str | None: the current value or None.
+        """
+        if (ret := string_var.get()) != '':
             return ret
         return None
+
+    def __update_current_instruction(self):
+        """
+        Updates the current instruction string variable.
+        """
+        self.__curr_instruction.set(self.__get_current_instruction())
 
     def __get_current_instruction(self):
         try:
@@ -292,8 +309,8 @@ class Application(tk.Frame):
             _input_txt = self.__string_var_or_none(self.__input_txt)
             _select_type = self.__string_var_or_none(self.__select_type)
             _select_val = self.__string_var_or_none(self.__select_val)
-            build_instruction(_type, _by, _by_val, _input_txt,
-                              _select_type, _select_val)
+            return build_instruction(_type, _by, _by_val, _input_txt,
+                                     _select_type, _select_val)
         except ValueError:
             return labels.INSUFFICIENT_DATA
 
